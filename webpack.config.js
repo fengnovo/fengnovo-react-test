@@ -20,7 +20,9 @@ module.exports.getConfig = function(isPub) {
     }
   };
 
-  isDev ? config.devtool = 'eval-source-map' : config.devtool = 'eval';
+  if(isDev){
+    config.devtool = 'eval';
+  }
 
   return config;
 }

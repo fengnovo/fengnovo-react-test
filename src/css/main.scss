@@ -1,4 +1,5 @@
-html {font-size: 10px;}
+@import 'home';
 
-@import 'newsList';
-@import 'newsDetail';
+body {
+	background: red;
+}

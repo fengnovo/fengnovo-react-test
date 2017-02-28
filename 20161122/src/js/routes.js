@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import App from './pages/app.jsx';
 import Home from './pages/home.jsx';
-import Info from './pages/info.jsx';
+import Detail from './pages/detail.jsx';
 import NotFound from './pages/notFound.jsx';
 
 const historyOptions = {
@@ -14,7 +14,7 @@ const routes = (
   <Router history={browserHistory}>
     <Route path='/' component={ App }>
       <IndexRoute component={ Home }/>
-      <Route path='info' component={ Info } />
+      <Route path='detail' component={ Detail } />
       <Route path='home' component={ Home } />
       <Route path='*' component={NotFound}/>
     </Route>

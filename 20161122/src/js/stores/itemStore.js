@@ -1,5 +1,8 @@
 import Reflux from 'reflux';
-import ItemActions from '../actions/itemActions';
+import {
+  ItemActions,
+  LiActions
+} from '../actions/itemActions';
 
 let ItemStore = Reflux.createStore({
   listenables: ItemActions,
@@ -32,4 +35,38 @@ let ItemStore = Reflux.createStore({
 
 });
 
-export default ItemStore;
+let LiStore = Reflux.createStore({
+  listenables: LiActions,
+  
+  init() {
+    this.items = [];
+  },
+
+  loadItems() {
+    this.trigger({ 
+      loading: true
+    });
+  },
+
+  loadItemsCompleted(items) {
+    this.items = items;
+
+    this.trigger({ 
+      items : this.items,
+      loading: false
+    });
+  },
+
+  loadItemsFailed(error) {
+    this.trigger({ 
+      error : error,
+      loading: false
+    });
+  }
+
+});
+
+export default {
+  ItemStore,
+  LiStore
+}

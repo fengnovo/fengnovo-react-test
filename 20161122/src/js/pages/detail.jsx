@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemList from '../components/itemList.jsx';
 import {
   ItemStore,
   LiStore
@@ -9,7 +8,8 @@ import {
   LiActions
 } from '../actions/itemActions';
 
-class Home extends React.Component {
+
+class Detail extends React.Component {
   
   constructor(props){
     super(props);
@@ -20,8 +20,8 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = ItemStore.listen(this.onStatusChange.bind(this));
-    ItemActions.loadItems();
+    this.unsubscribe = LiStore.listen(this.onStatusChange.bind(this));
+    LiActions.loadItems();
   }
 
   componentWillUnmount() {
@@ -35,10 +35,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="content">
-        <ItemList { ...this.state } />
+        <div></div>
       </div>
     );
   }
 }
 
-export default Home;
+export default Detail;

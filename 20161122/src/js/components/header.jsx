@@ -3,14 +3,14 @@ import { Link } from 'react-router';
 
 const Header = (props) => {
   return (
-    <header className="clearfix">
-      Application Name
-      <nav className="clearfix">
+    <header className="header">
+      <nav>
         <div className="nav-item">
-          <Link to="home">Home</Link>
+          <Link to="back"></Link>
         </div>
+        <div className="nav-item">网易新闻</div>
         <div className="nav-item">
-          <Link to="info">Info</Link>
+          <Link to="detail"></Link>
         </div>
       </nav>
     </header>

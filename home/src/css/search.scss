@@ -1,0 +1,67 @@
+.page-search {
+    height: 100%;
+    header {
+        font-size: 1.8rem; line-height: 2.1rem; color: white; padding: 1rem 1.5rem; background: #0061b3;
+        .return {float: left; width: 1.2rem; height: 2.1rem; }
+        .left-arrow {display: inline-block; width: 1.2rem; height: 1.2rem; border: solid #fff; border-width: 2px 0 0 2px; transform: rotate(-45deg); margin: 3px 0px 0px 8px;}
+        .swiper-container {
+            width: 80%; /* font-size: 1.4rem;  */@include clearTouchColor();
+            .swiper-slide {text-align: center; line-height: 2.1rem; opacity: 0.4;}
+            .swiper-slide-active {opacity: 1;}
+        }
+    }
+
+    .body-wrap {
+        height: calc(100% - 4.1rem); background-color: white; overflow: hidden;
+        .search-line {
+            display: flex; align-items: center; height: 4.3rem; font-size: 1.4rem; background-color: #eee;
+            button {width: 4.5rem; height: 2.8rem; margin: 0 0.5rem 0 0.7rem; color: white; border-radius: 5px; background-color: #479ffa;}
+        }
+        .input-widget {
+            margin-left: 1rem; position: relative; flex: 1; height: 2.8rem; padding: 0.6rem 0 0.6rem 3.2rem; box-sizing: border-box; background: white; border-radius: 5px;
+            .icon {position: absolute; width: 1.6rem; height: 1.6rem; top: 0.6rem; z-index: 9;}
+            .search-grey {left: 1rem; background: url('../img/search-grey.png') no-repeat 0 0 / contain;}
+            textarea, input {height: 1.8rem; width: 100%; line-height: 1.6rem; color: #bbb; resize: none;  appearance: none; }
+            .clear-input {right: 0.6rem; background: url('../img/clear-input.png') no-repeat 0 0 / contain; -webkit-tap-highlight-color: transparent;}
+        }
+
+        .scroll-section {
+            height: calc(100% - 4.3rem); overflow: auto;
+            .clear-history {color: #999; text-align: center; font-size: 1.4rem; line-height: 1.6rem; padding: 1.2rem; }
+        }
+
+        .query-list {
+            font-size: 1.8rem; line-height: 2.4rem; color: #333;
+            li {position: relative; @include onepxBottom(#ddd); height: 5rem; display: flex; align-items: center; overflow: hidden; padding: 0 1.5rem;}
+            .title {flex: 1; font-size: 1.8rem; line-height: 2.4rem; @include textEllipsis();}
+            .stock-name {}
+            .stock-code {
+                font-size: 1.2rem; line-height: 1.6rem; color: #666;
+                > * {display: inline-block; vertical-align: middle;} 
+                i {width: 2.5rem; height: 1.2rem;}
+                i.ggt {background: url('../img/ggt-icon.png') no-repeat 0 0 / cover;}
+                i.szgt {background: url('../img/szgt-icon.png') no-repeat 0 0 / cover;}
+            }
+            .code, .ops, .yield {flex-shrink: 0;}
+            .ops {width: 2.2rem; height: 2.2rem; background: url('../img/del_stock.png') no-repeat 0 0 / contain;}
+            .add {background: url('../img/add_stock.png') no-repeat 0 0 / contain;}
+            .yield {
+                strong {font-weight: normal; color: #dd5839; &.nagetive {color: #72973c;}}
+                span {display: inline-block; color: #999; margin-left: 1rem;}
+            }
+            .grey {color: #999};
+        }
+
+        .searching, {
+
+        }
+
+        .hint {
+            .img {margin: 30% auto 1rem; width: 9.9rem; }
+            p {text-align: center; color: #999; font-size: 1.6rem; line-height: 2.2rem;}
+        }
+        .not-found .img {height: 5.7rem; background: url('../img/not-found.png') no-repeat 0 0 / cover;}
+        .no-history .img {height: 6.8rem; background: url('../img/no-history.png') no-repeat 0 0 / cover;}
+    }
+    
+} 

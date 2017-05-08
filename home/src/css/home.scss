@@ -1,0 +1,151 @@
+.page-home {
+    background: #f5f5f5; height: 100%;
+    header {
+        background: #0061b3; display: flex; align-items: center;
+        .search {display: block; flex: 1; margin: 0.6rem 2.4rem 0.6rem 1.5rem; line-height: 2.7rem; border: 1px solid #66a0d1; border-radius: 1.5rem; 
+            padding-left: 3.6rem; color: white; font-size: 1.2rem; background: url('../img/search.png') no-repeat; background-size: 1.5rem 1.5rem; background-position: 1.1rem 0.6rem;}
+        .message {width: 2rem; height: 1.5rem; margin-right: 1.8rem; background: url('../img/message.png') no-repeat; background-size: cover; position: relative; @include clearTouchColor();}
+        // .message:active {-webkit-tap-highlight-color: transparent;}
+        .red-point {display: block; position: absolute; width: 0.5rem; height: 0.5rem; background: red; border-radius: 0.5rem; top: -0.25rem; right: -0.25rem;}
+    }
+    
+    .body-wrap {
+        height: calc(100% - 4.1rem); background: #f5f5f5; overflow: auto;
+    }
+
+    #slide {
+        width: 100%; /* height: 13rem; */
+        img {width: 100%; display: block; }
+    }
+
+    .server-items {
+        overflow: hidden; background: white;
+        .item {
+            width: 25%; height: 8rem; float: left;
+            img {display: block; width: 4rem; height: 4rem; margin: 1.5rem auto 0.5rem;}
+            p {color: #333; font-size: 1.2rem; line-height: 1.4rem; text-align: center;}
+        }
+    }
+
+    .bida {
+        position: relative; margin: 1rem; border-radius: 0.5rem; background: white; font-size: 1.2rem; padding: 1.2rem 1rem 1.2rem 1.5rem;
+        .corner {position: absolute; left: 0; top: 0; width: 3.2rem; height: 3.2rem; background: url('../img/corner.png'); background-size: cover;}
+        .wrap {display: flex; }
+        .wrap-left {
+            flex: 1; overflow: hidden; padding-top: 1rem;
+            h5, p {@include textEllipsis();}
+            h5 {font-size: 1.6rem; line-height: 2.6rem; color: #333; }
+            p {color: #666; line-height: 2rem; }
+            .fire {display: inline-block; width: 1.2rem; height: 1.3rem; margin-right: 0.6rem; vertical-align: -1px; background: url('../img/fire.png'); background-size: cover;} 
+        }
+        .wrap-right {
+            padding-left: 1.4rem; flex-shrink: 0; position: relative; @include onepxLeft(#eee);
+            .btn {color: white; font-size: 1.4rem; line-height: 3rem; border-radius: 1.4rem; padding: 0 1rem 0 3rem; margin-top: 0.8rem;
+                background: #4ca4ff url('../img/question.png') no-repeat 0.8rem 0.7rem / 1.6rem 1.6rem;}
+            p {color: #999; line-height: 2.4rem; text-align: center;}
+        }
+    }
+
+    .top-news {
+        display: flex; margin: 1rem; border-radius: 0.5rem; background: white; font-size: 1.4rem; padding: 1.5rem 1rem 0.6rem 1rem; height: 8.5rem; box-sizing: border-box;
+        .wrap-left {width: 7rem; background: url('../img/news.png') no-repeat 0 0 / 5.6rem 6.4rem;}
+        .wrap-right {
+            flex: 1; overflow: hidden; height: 100%;
+            .news-list {
+                .news-item {@include textEllipsis(); color: #333; line-height: 3rem;}
+                strong {font-weight: normal; color: #dd5839;}
+            }
+        }
+    } 
+
+    .warning {
+        margin: 1rem; border-radius: 0.5rem; background: white; font-size: 1.6rem; line-height: 2.1rem; color: #333;
+        .item {
+            padding: 1.2rem 1rem; position: relative; @include onepxBottom(#eee); display: flex; overflow: hidden;
+            > * {display: inline-block; vertical-align: middle;}
+            .icon-ipo {width: 1.8rem; height: 2.1rem; background: url('../img/ipo.png') no-repeat 0 0 / cover;}
+            .icon-bell {width: 1.7rem; height: 2.1rem; background: url('../img/bell.png') no-repeat 0 0 / cover;}
+            .title {text-indent: 1.5rem; @include textEllipsis(); flex: 1;}
+            .ipo-num {flex-shrink: 0; color: #999; font-size: 1.2rem; strong {font-weight: normal; color: #dd5839;}}
+            .right-arrow {width: 0.8rem; height: 0.8rem; border: solid #ccc; border-width: 2px 2px 0 0; transform: rotate(45deg); margin: 6px 0px 0px 4px;}
+        }
+        .item:last-child:after {width: 0;} // 取消最后一行1px的分割线
+    }   
+
+    .tougu {
+        margin: 1rem; border-radius: 0.5rem; color: white; background: white;
+        .group-wrap {padding: 1rem 2rem 1.5rem 1rem; background: url('../img/tougu-bg.png') no-repeat 0 0 / cover;/* 35.5rem 11.1rem; */border-radius: 0.5rem;}
+        h5 {font-size: 1.2rem; line-height: 1.6rem;}
+        .group {
+            margin-top: 1rem ; height: 6rem; display: flex;
+            > * {display: block; vertical-align: top;}
+            img {width: 5.3rem; height: 5.3rem; border: 0.35rem solid #5acdff; border-radius: 5rem; flex-shrink: 0;}
+            .name-wrap {
+                flex: 1; margin-left: 0.8rem; overflow: hidden;
+                p {width: 100%; }
+                p strong {font-size: 1.8rem; line-height: 2.4rem; display: block; vertical-align: top; @include textEllipsis();}
+                p span {color: #bee3fb; border: 1px solid #91d1f8; font-size: 1rem; display: inline-block; vertical-align: top; padding: 0.3rem;}
+            }
+            .profit-wrap {
+                width: 11.2rem; text-align: center;
+                p strong {font-size: 2.4rem; line-height: 2.6rem; font-weight: normal;}
+            }
+            .op-time, .group-name {font-size: 1rem; margin-top: 1.2rem; @include textEllipsis(); &.no-margin {margin-top: 0;}}
+        }
+        .info {
+            padding: 0.4rem 2rem 1.6rem 1rem;
+            h5 {color: #333; font-size: 1.6rem; line-height: 2.6rem; margin: 1rem 0;}
+            p {color: #666; font-size: 1.2rem; line-height: 1.8rem;/* text-indent: 2em; */overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+        }
+    }
+    .tougu.taller {
+        .group-wrap {padding-bottom: 1rem;}
+    }
+
+    .beta-niu {
+        border-radius: 0.5rem; margin: 0 1rem; background: white;  display: flex; padding: 1.2rem 0 0.8rem 1rem; align-items: center;
+        .icon-niu {width: 7.5rem; height: 8.5rem; background: url('../img/niu.png') no-repeat 0 0 / 6.3rem 8.5rem;}
+        .i-stock, .i-config {
+            flex: 1; padding: 0 2rem 0 2.5rem; overflow: hidden;
+            h5 {font-size: 1.6rem; line-height: 2.3rem; margin: 0.5rem 0;}
+            h5 i, h5 span {display: inline-block; vertical-align: middle;}
+            .icon {width: 2.3rem; height: 2.3rem; margin-right: 0.8rem;}
+            .right-arrow {width: 0.8rem; height: 0.8rem; border: solid; border-width: 2px 2px 0 0; transform: rotate(45deg); margin-left: 0.5rem;}
+            p {font-size: 1.2rem; line-height: 1.6rem; color: #666;}
+            .profit-wrap {
+                text-align: center; line-height: 2rem;
+                .name {color: #333; @include textEllipsis();}
+                .profit {color: #dd5839; strong {font-size: 2.4rem; line-height: 3rem; font-weight: normal;}}
+                .profit.nagetive {color: #72973c;}
+                .gray {color: #999;}
+            }        
+        }
+        .i-stock {
+            /* position: relative; @include onepxRight(#eee); */
+            h5 {color: #0079cd;}
+            .icon {background: url('../img/i-stock.png') no-repeat 0 0 / cover;}
+            .right-arrow {border-color: #0079cd;}
+        }
+        .i-config {
+            position: relative; @include onepxLeft(#eee);
+            h5 {color: #1aadea;}
+            .icon {background: url('../img/i-config.png') no-repeat 0 0 / cover;}
+            .right-arrow {border-color: #1aadea;}
+        }
+    }
+
+    .square-ad {
+        table {width: 100%; border-spacing: 1rem; table-layout: fixed;}
+        td {width: 50%;}
+        .ad-item {border-radius: 0.5rem; background: white; display: flex; align-items: center; padding: 1.6rem 0.8rem 1.6rem 1rem;}
+        .ad-left {
+            flex: 1; overflow: hidden;
+            h5 {font-size: 1.6rem; line-height: 2.2rem; color: #333; @include textEllipsis();}
+            p {font-size: 1.2rem; line-height: 1.8rem; color: #666; @include textEllipsis();}
+        }
+        .ad-right {
+            width: 7.2rem; height: 4.2rem; 
+            img {width: 100%; height: 100%;}
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "banner": [
+        {"id": 1, "pic": "./img/banner.png", "link": "/#/search"},
+        {"id": 2, "pic": "./img/banner1.jpg", "link": "/#/search"},
+        {"id": 3, "pic": "./img/banner2.jpg", "link": "/#/search"},
+        {"id": 4, "pic": "./img/banner3.jpg", "link": "/#/search"}
+    ],
+    "allService":[
+        {
+            "name": "金融超市",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 1
+        },
+        {
+            "name": "新股申购",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 2
+        },
+        {
+            "name": "业务办理",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 3
+        },
+        {
+            "name": "我要开户",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 4
+        },
+        {
+            "name": "贝塔牛",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 5
+        },
+        {
+            "name": "淘金圈",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 6
+        },
+        {
+            "name": "股票账户",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 7
+        },
+        {
+            "name": "现金增利",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 8
+        },
+        {
+            "name": "资讯",        
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 9
+        },
+        {
+            "name": "有声开讲",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 10
+        },
+        {
+            "name": "积分商城",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 11
+        },
+        {
+            "name": "有问必答",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 12
+        },
+        {
+            "name": "基金点将",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 13
+        },
+        {
+            "name": "我要融资",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 14
+        },
+        {
+            "name": "活动中心",
+            "icon": "./img/service-all.png",
+            "link":  "",
+            "id": 15
+        }
+    ],
+    "bida": {
+        "title": "广发证券(000776)趋势分析?我来提问",
+        "desc": "昨日5000+人提问该股",
+        "number": 7000
+    },
+    "topNews": [
+        {"column": "财经", "columnId": "12233", "title": "A股监管进入全面细化阶段", "id": "uyrlerlwjhiouwo"},
+        {"column": "要闻", "columnId": "12234", "title": "广发证券与前海管理局合作深化改革", "id": "yykwegjwgkl"},
+        {"column": "债券", "columnId": "12235", "title": "广发证券(000776)趋势分析", "id": "hgwgksgcbd"},
+        {"column": "国际新闻", "columnId": "12236", "title": "特朗普当选美国总统，股市承压", "id": "ugwkgffl"},
+        {"column": "股票", "columnId": "12237", "title": "上证指数直指3000", "id": "qggdjhtegfh"},
+        {"column": "基金", "columnId": "12238", "title": "猴性不改，持续调整，后市如何，请关注广发证券资讯", "id": "lwghgfdspoqw"}
+    ],
+    "warning": [
+        {"title": "欣泰退市风险警示", "id": "7yuehl"}
+    ],
+    "squareAd": [
+        {"id": 1, "icon": "./img/audio.png", "link": "/#/search", "title": "最新上线", "desc": "现金增利开通"},
+        {"id": 2, "icon": "./img/audio.png", "link": "/#/search", "title": "火热活动", "desc": "挂积分抽奖"},
+        {"id": 3, "icon": "./img/audio.png", "link": "/#/search", "title": "最近热推", "desc": "有声开讲"},
+        {"id": 4, "icon": "./img/audio.png", "link": "/#/search", "title": "开户专享", "desc": "开户有奖专享"}
+    ]
+}

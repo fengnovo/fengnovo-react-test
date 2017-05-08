@@ -1,0 +1,16 @@
+.modal-mask {
+    position: absolute; top: 0; bottom: 0; left: 0; right: 0; 
+    .mask {background: #000; opacity: 0.6; height: 100%;}
+    .modal-body {
+        position: absolute; top: 50%; transform: translateY(-50%); left: 3rem; right: 3rem; text-align: center; background: white; border-radius: 0.5rem;
+    }
+    .content {
+        position: relative; @include onepxBottom(#ddd); padding: 0.3rem 0;
+        .title {font-size: 1.8rem; color: #333; line-height: 2.4rem; margin: 2.4rem 0 2rem;}
+        .warn {display: inline-block; width: 2rem; height: 2rem; margin-right: 1rem; vertical-align: middle; background: url('../img/warn.png') no-repeat 0 0 / cover;}
+        .text {font-size: 1.6rem; color: #666; line-height: 2.4rem; margin: 2rem 0 1.7rem;}
+    }
+    .footer {
+        font-size: 1.6rem; color: #0061b3; line-height: 2.5rem; margin: 1rem 0; 
+    }
+}

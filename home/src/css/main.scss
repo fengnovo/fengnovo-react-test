@@ -1,0 +1,32 @@
+@import 'node_modules/normalize.css/normalize';
+@import 'node_modules/swiper/dist/css/swiper.min';
+@import 'rem';
+@import 'onepx';
+
+@mixin clearTouchColor() {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    height: 100%; 
+}
+#ios-top {height: 20px; background: #0061b3; display: none;}
+#app {
+    height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    &.no-scroll {overflow: hidden;}
+}
+
+* {margin: 0; padding: 0; outline: none; border: 0; }
+// * {-webkit-touch-callout:none; -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;}
+ul, li {list-style: none;}
+h1, h2, h3, h4, h5, h6, p {font-weight: normal;}
+a {-webkit-tap-highlight-color: transparent; text-decoration: none;}
+
+@import 'home';
+@import 'sort';
+@import 'search';
+@import 'loading';
+@import 'maskmodal';
+
+

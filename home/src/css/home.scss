@@ -1,16 +1,41 @@
 .page-home {
-    background: #f5f5f5; height: 100%;
+    background: #f5f5f5; height: 100%;overflow: auto; position: relative;
     header {
-        background: #0061b3; display: flex; align-items: center;
-        .search {display: block; flex: 1; margin: 0.6rem 2.4rem 0.6rem 1.5rem; line-height: 2.7rem; border: 1px solid #66a0d1; border-radius: 1.5rem; 
-            padding-left: 3.6rem; color: white; font-size: 1.2rem; background: url('../img/search.png') no-repeat; background-size: 1.5rem 1.5rem; background-position: 1.1rem 0.6rem;}
+        display: flex; align-items: center;position: fixed;top: 0;z-index: 2;width: 100%;
+        .search-new {
+            left: 2.5rem;
+            background: url('../img/search.png') no-repeat; 
+            background-size: contain;
+        }
+        .icon {
+            position: absolute;
+            width: 1.6rem;
+            height: 1.6rem;
+            top: 1rem;
+            z-index: 9;
+        }
+        .search {    display: block;
+                    -webkit-box-flex: 1;
+                    -webkit-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+                    margin: .6rem 2.4rem .6rem 1.5rem;
+                    line-height: 2.7rem;
+                    border: none;
+                    border-radius: 4px;
+                    padding-left: 3.6rem;
+                    color: hsla(0,0%,100%,.8);
+                    font-size: 1.2rem;
+                    background: hsla(0,0%,100%,.3);
+                    background-size: 1.5rem 1.5rem;
+                    background-position: 1.1rem .6rem;}
         .message {width: 2rem; height: 1.5rem; margin-right: 1.8rem; background: url('../img/message.png') no-repeat; background-size: cover; position: relative; @include clearTouchColor();}
         // .message:active {-webkit-tap-highlight-color: transparent;}
         .red-point {display: block; position: absolute; width: 0.5rem; height: 0.5rem; background: red; border-radius: 0.5rem; top: -0.25rem; right: -0.25rem;}
     }
     
     .body-wrap {
-        height: calc(100% - 4.1rem); background: #f5f5f5; overflow: auto;
+        background: #f5f5f5; overflow: auto;height: 100%;
     }
 
     #slide {

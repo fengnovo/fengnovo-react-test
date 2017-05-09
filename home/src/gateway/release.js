@@ -1,8 +1,7 @@
 //打包到手机，发布正式版本时用到的
 //
 const gateWay = {
-    home_cms_config: {
-        // 下面是功能清单的默认配置
+    config: {
         allService: [
             {
                 id: "58298085f5a46516d43229a2",
@@ -209,6 +208,94 @@ const gateWay = {
             }
         ],
         squareAd: [
+            {
+                id: "58749657f776484f7ff056c2",
+                name: "CMS后台可配_行情",
+                content: "测试四方块广告页",
+                category: 3,
+                order: 1,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/116e343158944e9b87cd20ae7aee58c920170508103109.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
+            {
+                id: "58749779f776484f7ff056c4",
+                name: "CMS后台可配",
+                content: "广告指向页面",
+                category: 3,
+                order: 2,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/95c0a752e8fa4aecbaaaa84d08b5e03320170508103127.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
+            {
+                id: "5874a761f776484f7ff056df",
+                name: "四方格广告_",
+                content: "",
+                category: 3,
+                order: 3,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/c99ff192200a4694b67d8f44a01a070420170508103145.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 1
+            },
+            {
+                id: "5874a7fdf776484f7ff056e1",
+                name: "4444",
+                content: "5555",
+                category: 3,
+                order: 4,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/31ff5d31a3fa40c7aee750b82b16df7520170508181306.png?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
+            {
+                id: "58749657f776484f7ff056c2",
+                name: "CMS后台可配_行情",
+                content: "测试四方块广告页",
+                category: 3,
+                order: 1,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/116e343158944e9b87cd20ae7aee58c920170508103109.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
+            {
+                id: "58749779f776484f7ff056c4",
+                name: "CMS后台可配",
+                content: "广告指向页面",
+                category: 3,
+                order: 2,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/95c0a752e8fa4aecbaaaa84d08b5e03320170508103127.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
+            {
+                id: "5874a761f776484f7ff056df",
+                name: "四方格广告_",
+                content: "",
+                category: 3,
+                order: 3,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/c99ff192200a4694b67d8f44a01a070420170508103145.jpeg?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 1
+            },
+            {
+                id: "5874a7fdf776484f7ff056e1",
+                name: "4444",
+                content: "5555",
+                category: 3,
+                order: 4,
+                target: 1,
+                picUrl: "http://cms-bucket.nosdn.127.net/31ff5d31a3fa40c7aee750b82b16df7520170508181306.png?imageView&thumbnail=220y165&quality=45&type=webp&interlace=1&enlarge=1",
+                linkUrl: "web:https://www.baidu.com",
+                linkType: 0
+            },
             {
                 id: "58749657f776484f7ff056c2",
                 name: "CMS后台可配_行情",

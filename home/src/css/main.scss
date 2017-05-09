@@ -13,7 +13,7 @@ html, body {
 }
 #ios-top {height: 20px; background: #0061b3; display: none;}
 #app {
-    height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    height: 100%;  -webkit-overflow-scrolling: touch;
     &.no-scroll {overflow: hidden;}
 }
 

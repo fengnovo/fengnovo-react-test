@@ -35,15 +35,6 @@ class Warning extends React.Component {
             return;
         }
 
-        let url = this.gateway.buy_new_stock_info.url;
-
-        $.get(url, (json, textStatus) => {
-            this.setState({
-                ipoNum: json.length
-            });
-
-            localStorage.setItem('gf-app-home-iponum', json.length || 0);
-        });
     }
 
     componentWillUnmount() {

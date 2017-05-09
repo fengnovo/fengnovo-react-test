@@ -59,20 +59,7 @@ class TopNews extends React.Component {
         if (!util.isFirstLoad()) {
             return;
         }
-
-        let url = this.gateway.gf_info_top_news.url;
-
-        $.get(url, (json, textStatus) => {
-            if (0 != json.errCode) {
-                return;
-            }
-
-            this.setState({
-                topNews: json.data || []
-            }, this.loop);
-
-            localStorage.setItem('gf-app-home-topnews', JSON.stringify(json.data || []));
-        });
+        
     }
 
     componentWillUnmount() {

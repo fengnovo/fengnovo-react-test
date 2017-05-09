@@ -34,7 +34,7 @@ class SquareAd extends React.Component {
             return null;
         }
 
-        for (let i = 0, len = squareAd.length; i < len && i < 4; i++) {
+        for (let i = 0, len = squareAd.length; i < len; i++) {
             ad = squareAd[i];
             tds.push(
                 <td key={ad.id} onClick={this.toSquareAd.bind(this, ad.linkUrl, ad.name)}>

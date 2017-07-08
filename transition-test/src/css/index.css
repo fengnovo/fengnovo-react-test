@@ -17,6 +17,7 @@ a {
 
 #list {
     margin-top: 3.3rem;
+    /*margin-bottom: 3rem;*/
 }
 #list a:link { 
     color:#000; 
@@ -74,6 +75,12 @@ a {
     width: 0;
     display: block;
 }*/
+
+#content .more-center{
+    margin: .5rem auto 3.3rem;
+    padding: 0 40%;
+}
+
 .clr {
     clear: both;
     display: none;
@@ -172,3 +179,55 @@ a {
     text-overflow: ellipsis;
     padding-right: .5rem;
 }
+
+
+#user {
+    margin-top: 3.3rem;
+    margin-bottom: 3rem;
+}
+
+#user li{
+    padding: .5rem; 
+    border-bottom: 1px solid #ccc;
+}
+
+#user li img{
+    width: 10rem;
+    height: 8rem;
+}
+
+#user .list-item{
+    padding: .5rem; 
+    min-height: 4.4rem;
+}
+#user .list-item p{
+    margin: 0;
+    margin-bottom: .5rem;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: normal; 
+}
+
+#user .list-item h5{
+    margin: 0;
+    padding: 0;
+    font-size: .5rem;
+    font-weight: normal; 
+}
+
+#user a:link { 
+    color:#000; 
+    text-decoration:none; 
+} 
+#user a:visited { 
+    color:#b2b2b2; 
+    text-decoration:none; 
+} 
+#user a:hover { 
+    color:#000; 
+    text-decoration: none; 
+} 
+#user a:active { 
+    color:#b2b2b2; 
+    text-decoration:none; 
+} 

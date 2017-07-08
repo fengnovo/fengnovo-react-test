@@ -1,0 +1,21 @@
+.footer{
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    bottom: 0;
+    background: -webkit-linear-gradient(top, #65bbce, #50b1c8);
+}
+
+#footer-list li{
+    text-align: center;
+    width: 20%;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+#footer-list li a{
+    text-decoration: none;
+    color: #fff;
+}

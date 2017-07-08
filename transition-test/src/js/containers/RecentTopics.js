@@ -17,13 +17,12 @@ class Replies extends Component {
              <ul id="replie-img">
                 {this.props.replies.map((item,i)=>(
                     <li key={i}>
-                        <Link to={"/user/"+item.author.loginname}>
-                            <img src={item.author.avatar_url}/>
+                        <Link to={"detail/"+item.id}>
+                            <div className="list-item">
+                                <p>{item.title}</p>
+                                <h5>{item.last_reply_at}</h5>
+                            </div>
                         </Link>
-                        <div className="list-item">
-                            <p dangerouslySetInnerHTML={{ __html: item.content}}></p>
-                            <h5>{item.create_at}</h5>
-                        </div>
                     </li>))}
             </ul>
         )

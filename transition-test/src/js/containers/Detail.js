@@ -71,7 +71,7 @@ class Detail extends Component {
                         <div id="detail">
                             <li>
                                 <a href={"#/user/"+author.loginname}>
-                                    <img src="https://avatars1.githubusercontent.com/u/227713?v=3&amp;s=120"/>
+                                    <img src={author.avatar_url}/>
                                 </a>
                                 <div className="list-item">
                                     <p>{title}</p>

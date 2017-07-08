@@ -1,5 +1,4 @@
 import './css/index.css'
-import './css/home.css'
 import './css/back.css'
 import './css/transition.css'
 import './css/loading.css'

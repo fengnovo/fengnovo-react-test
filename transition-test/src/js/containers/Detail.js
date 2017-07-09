@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import 'es6-promise'
+import fetch from 'isomorphic-fetch'
 import Loading from '../components/Loading'
 import Replies from './Replies'
 
-import 'es6-promise'
-import fetch from 'isomorphic-fetch'
+import { gobalUrl } from '../util/commonConfig'
+import { transTime } from '../util/time'
+
+import backImg from '../../imgs/back.png'
 
 class Detail extends Component {
 
@@ -28,7 +32,7 @@ class Detail extends Component {
     }
 	
     componentDidMount() {
-		fetch(`https://cnodejs.org/api/v1/topic/${this.state.id}`)
+		fetch(`${gobalUrl}/api/v1/topic/${this.state.id}`)
 		.then(response=>response.json())
 		.then(data=> {
 
@@ -46,6 +50,11 @@ class Detail extends Component {
 
 	}
 
+
+    handleBack() {
+        window.history.back()
+    }
+
     render() {
         let {
             id,
@@ -62,9 +71,7 @@ class Detail extends Component {
         return (
             <div>
                 <nav className="nav">
-                    <a className="btn-back" href="#">
-    	                <span>首页</span>
-                    </a>
+                    <img className="btn-back" src={backImg} onClick={this.handleBack}/>
                     <div className="nav-text">{title}</div></nav>
                 { content == '' ? 
                         <div className="content-center"><Loading r={52} z={4} c='#65bbce'/></div> : 
@@ -75,7 +82,7 @@ class Detail extends Component {
                                 </a>
                                 <div className="list-item">
                                     <p>{title}</p>
-                                    <h5>作者：{author.loginname} 时间：{create_at}</h5>
+                                    <h5>作者：{author.loginname} 时间：{transTime(create_at)}</h5>
                                     <h5>回复数：{reply_count} 浏览量：{visit_count}</h5>
                                 </div>
                             </li>

@@ -7,7 +7,8 @@
   
     position: relative;   
     display: block;   
-    margin-top: 11px;   
+    margin-top: 11px; 
+    margin-right: .5rem;  
 }   
 /*按钮主体*/  
 .btn-back span {   

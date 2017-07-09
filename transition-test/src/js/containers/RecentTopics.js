@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import 'es6-promise'
 import fetch from 'isomorphic-fetch'
 
+import { transTime } from '../util/time'
+
 class Replies extends Component {
 
     constructor(props) {
@@ -20,7 +22,7 @@ class Replies extends Component {
                         <Link to={"detail/"+item.id}>
                             <div className="list-item">
                                 <p>{item.title}</p>
-                                <h5>{item.last_reply_at}</h5>
+                                <h5>{transTime(item.last_reply_at)}</h5>
                             </div>
                         </Link>
                     </li>))}

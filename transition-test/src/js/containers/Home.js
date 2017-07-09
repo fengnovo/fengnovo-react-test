@@ -1,76 +1,62 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import 'es6-promise'
+import fetch from 'isomorphic-fetch'
+
+import { gobalUrl,HomePageLimit } from '../util/commonConfig'
+import { getScrollTop,getScrollHeight,getWindowHeight } from '../util/scroll'
+import { transTime } from '../util/time'
+
 import Img from '../components/Img'
 import Loading from '../components/Loading'
 import defaultImg from '../../imgs/cnodejs.png'
+import accountImg from '../../imgs/account.png'
 
-import 'es6-promise'
-import fetch from 'isomorphic-fetch'
-import { Link } from 'react-router-dom'
+
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-		 if(this.props.match && this.props.match.params && this.props.match.params.tab){
-           this.tab = this.props.match.params.tab; 
-        }
-		console.log(this.tab)
+		let cnode = JSON.parse(localStorage.getItem('fengnovo.cnode')) || {}
+		let user = JSON.parse(localStorage.getItem('fengnovo.cnode.user')) || {}
+		let {
+			list=[],
+			tab='all',
+			scrollTop=0,
+			activeClass='all',
+			page=1
+		} = cnode
         this.state = {
-            list: [],
-			tab: this.tab || 'all',
-			page: 1,
-			// loaded: false
+            list,
+			tab,
+			page,
+			activeClass,
+			scrollTop,
+			user
         }
+		// console.log(this.state);
 		this.loaded = false
 		this.scollHandle = this.scollHandle.bind(this)
+		this.handleTab = this.handleTab.bind(this)
+		this.fetchData = this.fetchData.bind(this)
     }
 	
 	scollHandle() {
 		let _this = this;
-		//滚动条在Y轴上的滚动距离
-		function getScrollTop(){
-		　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
-		　　if(document.body){
-		　　　　bodyScrollTop = document.body.scrollTop;
-		　　}
-		　　if(document.documentElement){
-		　　　　documentScrollTop = document.documentElement.scrollTop;
-		　　}
-		　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
-		　　return scrollTop;
-		}
-		//文档的总高度
-		function getScrollHeight(){
-		　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
-		　　if(document.body){
-		　　　　bodyScrollHeight = document.body.scrollHeight;
-		　　}
-		　　if(document.documentElement){
-		　　　　documentScrollHeight = document.documentElement.scrollHeight;
-		　　}
-		　　scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
-		　　return scrollHeight;
-		}
-		//浏览器视口的高度
-		function getWindowHeight(){
-		　　var windowHeight = 0;
-		　　if(document.compatMode == "CSS1Compat"){
-		　　　　windowHeight = document.documentElement.clientHeight;
-		　　}else{
-		　　　　windowHeight = document.body.clientHeight;
-		　　}
-		　　return windowHeight;
-		}
 		window.onscroll = function(){
+			// console.log(_this.loaded) 
 		　　if(_this.loaded && getScrollTop() + getWindowHeight() == getScrollHeight()){
-				console.log("you are in the bottom!");
+				// console.log("you are in the bottom!");
 				_this.loaded = false
-				fetch(`https://cnodejs.org/api/v1/topics?limit=10&page=${_this.state.page}&tab=${_this.state.tab}`)
+				fetch(`${gobalUrl}/api/v1/topics?limit=${HomePageLimit}&page=${_this.state.page}&tab=${_this.state.tab}`)
 				.then(response=>response.json())
 				.then(data=> {
+					let page = _this.state.page+1
+					// console.log(page)
 					_this.setState({
-						page: ++_this.state.page,
+						page,
 						list: _this.state.list.concat(data.data),
 					})
 					_this.loaded = true
@@ -83,29 +69,68 @@ class Home extends Component {
 		};
 	}
 
-    componentDidMount() {
-		fetch(`https://cnodejs.org/api/v1/topics?limit=10&page=${this.state.page}&tab=${this.state.tab}`)
+	handleTab(tab) {
+		if(window.onscroll) window.onscroll = null
+		this.setState({tab,list: [],page: 1,activeClass: tab})
+		setTimeout(()=>{
+			this.fetchData()
+		},50)
+	}
+
+	fetchData() {
+		fetch(`${gobalUrl}/api/v1/topics?limit=${HomePageLimit}&page=${this.state.page}&tab=${this.state.tab}`)
 		.then(response=>response.json())
 		.then(data=> {
+			let page = this.state.page+1
+			// console.log(page)
 			this.setState({
-				page: ++this.state.page,
+				page,
 				list: data.data,
 			})
 			this.scollHandle()
 			this.loaded = true
 		})
 		.catch(e => console.log(e))
-    }
+	}
+
+    componentDidMount() {
+		if(this.state.list.length == 0){
+			this.fetchData()
+		}else{
+			window.scrollTo(0, this.state.scrollTop)
+			this.loaded = true
+			this.scollHandle()
+		}
+		
+    }	
 
 	componentWillUnmount (){
 		if(window.onscroll) window.onscroll = null
+		let {
+			list,
+			tab,
+			page,
+			activeClass
+		} = this.state
+		localStorage.setItem('fengnovo.cnode',JSON.stringify({
+			scrollTop: getScrollTop(),
+			list,
+			tab,
+			page,
+			activeClass
+		}))
 	}
 
     render() {
         return (
             <div id="content">
 				<nav className="nav">
-					<img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg"/>
+					<img className="homepage-left-img" src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg"/>
+					{
+						this.state.user.loginname ? 
+							<Link to={`/user/${this.state.user.loginname}`}><img className="homepage-right-img" src={accountImg}/></Link> : 
+							<Link to={"/login"}><img className="homepage-right-img" src={accountImg}/></Link>
+					}
 				</nav>
                 <ul id="list">
 					{this.state.list.map((item,i)=>(
@@ -120,7 +145,7 @@ class Home extends Component {
 							<Link to={"/detail/"+item.id}>
 								<div className="list-item">
 									<p>{item.title}</p>
-									<h5>{item.create_at}</h5>
+									<h5>{transTime(item.create_at)}</h5>
 								</div>
 							</Link>
 						</li>))}
@@ -128,30 +153,20 @@ class Home extends Component {
 				<div className="more-center"><Loading r={40} z={3} c='#65bbce'/></div>
 				<footer className="footer">
 					<ul id="footer-list">
-						<li key={'all'}>
-							<Link to={"home/all"}>
+						<li key={'all'} onClick={this.handleTab.bind(this,'all')} className={this.state.activeClass == 'all'?'active':''}>
 								全部
-							</Link>
 						</li>
-						<li key={'good'}>
-							<Link to={"home/good"}>
+						<li key={'good'} onClick={this.handleTab.bind(this,'good')} className={this.state.activeClass == 'good'?'active':''}>
 								精华
-							</Link>
 						</li>
-						<li key={'share'}>
-							<Link to={"home/share"}>
+						<li key={'share'} onClick={this.handleTab.bind(this,'share')} className={this.state.activeClass == 'share'?'active':''}>
 								分享
-							</Link>
 						</li>
-						<li key={'ask'}>
-							<Link to={"home/ask"}>
+						<li key={'ask'} onClick={this.handleTab.bind(this,'ask')} className={this.state.activeClass == 'ask'?'active':''}>
 								问答
-							</Link>
 						</li>
-						<li key={'job'}>
-							<Link to={"home/job"}>
+						<li key={'job'} onClick={this.handleTab.bind(this,'job')} className={this.state.activeClass == 'job'?'active':''}>
 								招聘 
-							</Link>
 						</li>
 					</ul>
 				</footer>

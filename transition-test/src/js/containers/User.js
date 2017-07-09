@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import 'es6-promise'
+import fetch from 'isomorphic-fetch'
+
 import Loading from '../components/Loading'
 import RecentTopics from './RecentTopics'
 
-import 'es6-promise'
-import fetch from 'isomorphic-fetch'
+import { gobalUrl } from '../util/commonConfig'
+import { transTime } from '../util/time'
+
+import backImg from '../../imgs/back.png'
+import exitImg from '../../imgs/exit.png'
+import writeImg from '../../imgs/write.png'
 
 class User extends Component {
 
@@ -13,6 +20,7 @@ class User extends Component {
         if(this.props.match && this.props.match.params && this.props.match.params.id){
            this.loginname = this.props.match.params.id; 
         }
+        let user = JSON.parse(localStorage.getItem('fengnovo.cnode.user')) || {}
         this.state = {
             title: '人物',
             loginname: this.loginname,
@@ -20,12 +28,16 @@ class User extends Component {
             githubUsername: '',
             create_at: null,
             score: 0,
-            recent_topics: []
+            recent_topics: [],
+            user
         }
+        this.handleBack = this.handleBack.bind(this)
+        this.handleExit = this.handleExit.bind(this)
+        this.handlePublish = this.handlePublish.bind(this)
     }
 	
     componentDidMount() {
-		fetch(`https://cnodejs.org/api/v1/user/${this.state.loginname}`)
+		fetch(`${gobalUrl}/api/v1/user/${this.state.loginname}`)
 		.then(response=>response.json())
 		.then(data=> {
             this.setState({...data.data})
@@ -42,6 +54,23 @@ class User extends Component {
 
 	}
 
+    handleBack() {
+        window.history.back()
+    }
+
+    handlePublish() {
+        if(this.state.user.loginname){
+            this.props.history.push('/publish')
+        }else{
+            this.props.history.push('/login')
+        }
+    }
+
+    handleExit() {
+        localStorage.removeItem('fengnovo.cnode.user')
+        this.setState({user:{}})
+    }
+
     render() {
         let {
             title,
@@ -55,16 +84,16 @@ class User extends Component {
         return (
             <div>
                 <nav className="nav">
-                    <a className="btn-back" href="#">
-    	                <span>上一页</span>
-                    </a>
-                    <div className="nav-text">{loginname}</div></nav>
+                    <img className="btn-back" src={backImg} onClick={this.handleBack}/>
+                    <div className="nav-text">{loginname}</div>
+                    {this.state.user.loginname == loginname ? <img className="nav-img" src={exitImg} onClick={this.handleExit}/> : <img className="nav-img" src={writeImg} onClick={this.handlePublish}/>}
+                </nav>
                 { create_at ?  <div id="user">
                             <li>
-                                <img src={avatar_url}/>
+                                <div><img src={avatar_url}/>{this.state.user.loginname == loginname ? <button className="" onClick={this.handlePublish}>发表</button> : null}</div>
                                 <div className="list-item">
                                     <p>{loginname}</p>
-                                    <h5>作者：{loginname} 时间：{create_at}</h5>
+                                    <h5>作者：{loginname} 时间：{transTime(create_at)}</h5>
                                     <h5>分数：{score}</h5>
                                 </div>
                             </li>

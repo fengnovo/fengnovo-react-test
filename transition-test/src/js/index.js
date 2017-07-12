@@ -30,8 +30,3 @@ render(
     rootElement
 )
 
-
-// render(
-//     
-//     rootElement
-// )

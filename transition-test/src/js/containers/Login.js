@@ -44,6 +44,7 @@ class User extends Component {
         .then(response=>response.json())
 		.then(data=> {
             if(data.success){
+                data.accesstoken = accesstoken
                 localStorage.setItem('fengnovo.cnode.user',JSON.stringify(data))
                 window.location.href = `/#/user/${data.loginname}`
             }

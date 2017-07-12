@@ -23,7 +23,8 @@
     "react-router-redux": "^4.0.8",
     "react-transition-group": "^1.2.0",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.1"
+    "redux-logger": "^3.0.1",
+    "wangeditor": "^3.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

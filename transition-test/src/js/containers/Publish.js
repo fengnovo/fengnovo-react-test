@@ -9,7 +9,7 @@ import Loading from '../components/Loading'
 import RecentTopics from './RecentTopics'
 
 import Editor from './../components/Editor'
-import {toastIt} from './../components/Toast';
+import {toastIt} from './../components/Toast'
  
 
 
@@ -48,6 +48,9 @@ class User extends Component {
 
     handleExit() {
         localStorage.removeItem('fengnovo.cnode.user')
+        this.setState({
+            user: {}
+        })
     }
 
     clickHandle() {

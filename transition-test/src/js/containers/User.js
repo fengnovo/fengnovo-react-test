@@ -29,6 +29,7 @@ class User extends Component {
             create_at: null,
             score: 0,
             recent_topics: [],
+            recent_replies: [],
             user
         }
         this.handleBack = this.handleBack.bind(this)
@@ -79,7 +80,8 @@ class User extends Component {
             githubUsername,
             create_at,
             score,
-            recent_topics
+            recent_topics,
+            recent_replies
         } = this.state
         return (
             <div>
@@ -90,21 +92,30 @@ class User extends Component {
                 </nav>
                 { create_at ?  <div id="user">
                             <li>
-                                <div><img src={avatar_url}/>{this.state.user.loginname == loginname ? <button className="" onClick={this.handlePublish}>发表</button> : null}</div>
+                                <div><img src={avatar_url}/>{this.state.user.loginname == loginname ? 
+                                    <button className="login-btn" onClick={this.handlePublish}>发表</button> 
+                                    : null}</div>
                                 <div className="list-item">
                                     <p>{loginname}</p>
                                     <h5>作者：{loginname} 时间：{transTime(create_at)}</h5>
                                     <h5>分数：{score}</h5>
                                 </div>
                             </li>
+                            <h3 className="user-topic-list">最近创建的话题</h3>
                             <RecentTopics replies={recent_topics}/>
+                            <h3 className="user-topic-list">最近参与的话题</h3>
+                            <RecentTopics replies={recent_replies}/>
                         </div> : <div className="content-center"><Loading r={52} z={4} c='#65bbce'/></div> }
 		    </div>
         )
     }
 }
+/*
 
-
-
+                                {this.state.user.loginname == loginname ? <div> 
+                                    <h3>我的收藏</h3>
+                                    
+                                </div> : null }
+*/
 export default User
 

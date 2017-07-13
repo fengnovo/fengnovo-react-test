@@ -2,28 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 var ROOT_PATH = path.resolve(__dirname);		//相当于：cd /Users/tusm/Downloads/react-ele-webapp-master
 var APP_PATH = path.resolve(ROOT_PATH, 'src');			//相当于：cd app
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');		//相当于：cd build
-
-/*
-文件夹名称 path.dirname(p)
-特点：返回路径的所在的文件夹名称
-
-路径寻航 path.resolve([from …], to)
-特点：相当于不断的调用系统的cd命令
-
-示例：
-path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile')
- 
-//相当于：
-cd foo/bar
-cd /tmp/file/
-cd ..
-cd a/../subfile
-pwd
-*/
 
 var cwd = process.cwd();
 console.log('process.cwd()->'+cwd);	//	/Users/tusm/Downloads/react-ele-webapp-master		//cwd() 是当前执行node命令时候的文件夹地址 
@@ -71,13 +54,32 @@ module.exports = {
 	          presets: ['react','es2015','stage-0']
 	        }
 	      },
+	      //这一种就要写postcss.config.js
+          // {
+          //   test: /\.(css|scss)$/,
+          //   include: APP_PATH,
+          //   use: ExtractTextPlugin.extract({
+          //       fallbackLoader: 'style-loader',
+          //       loader: ['css-loader', 'postcss-loader','sass-loader']
+          //   })
+          // },
           {
             test: /\.(css|scss)$/,
             include: APP_PATH,
-            use: ExtractTextPlugin.extract({
-                fallbackLoader: 'style-loader',
-                loader: ['css-loader', 'sass-loader']
-            })
+            use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: { autoprefixer: true, sourceMap: true, importLoaders: 1 }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: () => [autoprefixer({ browsers: ['iOS >= 7', 'Android >= 4.1'] })],
+              },
+            },
+            'sass-loader']
           },
             {
                 test: /\.(jpg|jpeg|png|gif)$/,

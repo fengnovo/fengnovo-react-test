@@ -19,7 +19,7 @@ class Replies extends Component {
              <ul id="replie-img">
                 {this.props.replies.map((item,i)=>(
                     <li key={i}>
-                        <Link to={"detail/"+item.id}>
+                        <Link to={"/detail/"+item.id}>
                             <div className="list-item">
                                 <p>{item.title}</p>
                                 <h5>{transTime(item.last_reply_at)}</h5>

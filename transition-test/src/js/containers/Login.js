@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import 'es6-promise'
 import fetch from 'isomorphic-fetch'
+import createHistory from 'history/createHashHistory'
+const history = createHistory()
+
 
 import { gobalUrl } from '../util/commonConfig'
 
 import Loading from '../components/Loading'
+import {toastIt} from './../components/Toast'
 
 import backImg from '../../imgs/back.png'
 
@@ -32,7 +36,8 @@ class User extends Component {
         let accesstoken = this.refs.token.value.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'')
         console.log(accesstoken)
         if(!accesstoken){
-            return 
+            toastIt('请输入accesstoken！', 2000, {fontSize: '18px'})
+            return
         }
         fetch(`${gobalUrl}/api/v1/accesstoken`, {
             method: 'post',
@@ -46,7 +51,9 @@ class User extends Component {
             if(data.success){
                 data.accesstoken = accesstoken
                 localStorage.setItem('fengnovo.cnode.user',JSON.stringify(data))
-                window.location.href = `/#/user/${data.loginname}`
+                history.push(`/user/${data.loginname}`)
+            }else{
+                toastIt(`登录失败！${data.error_msg}`, 2000, {fontSize: '18px'})
             }
 		})
 		.catch(e => {

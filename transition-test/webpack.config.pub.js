@@ -51,16 +51,17 @@ module.exports = {
             include: APP_PATH,
             use: ExtractTextPlugin.extract({
                 fallbackLoader: 'style-loader?minimize',
-                loader: ['css-loader?minimize', 'sass-loader?minimize']
+                loader: ['css-loader?minimize','postcss-loader?minimize', 'sass-loader?minimize']
             })
           },
+          
             {
                 test: /\.(jpg|jpeg|png|gif)$/,
                 loader: 'url-loader',
 				include: APP_PATH,
                 query: {
                     limit: 8192,
-                    name: '../imgs/[name]-[hash:8].[ext]'
+                    name: './imgs/[name]-[hash:8].[ext]'
                 }
             },
             {
@@ -68,7 +69,7 @@ module.exports = {
                 loader: 'file-loader',
 				include: APP_PATH,
                 query: {
-                    name: '../fonts/[name]-[hash:8].[ext]',
+                    name: './fonts/[name]-[hash:8].[ext]',
                 },
             }
 	    ]
@@ -93,6 +94,7 @@ module.exports = {
 	      title: 'react-ele-webapp',
 	      template: path.resolve(ROOT_PATH, 'publish.html'),
 	      filename: 'index.html',
+	      favicon:'./favicon.ico',
 	      // chunks: ['app', 'vendors'],
 	      minify: {
                caseSensitive: false, 			//是否大小写敏感

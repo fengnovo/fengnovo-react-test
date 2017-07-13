@@ -22,9 +22,12 @@ class Replies extends Component {
                 <ul id="replie-img">
                     {this.props.replies.map((item,i)=>(
                         <li key={i}>
-                            <Link to={"/user/"+item.author.loginname}>
-                                <img src={item.author.avatar_url}/>
-                            </Link>
+                            <div className="left-avatar">
+                                <Link to={"/user/"+item.author.loginname}>
+                                    <img src={item.author.avatar_url}/>
+                                </Link>
+                                <span className="loginname-avatar">{item.author.loginname}</span>
+                            </div>
                             <div className="list-item">
                                 <p dangerouslySetInnerHTML={{ __html: item.content}}></p>
                                 <h5>{transTime(item.create_at)}</h5>

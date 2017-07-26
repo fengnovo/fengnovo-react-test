@@ -1,0 +1,28 @@
+#login .login-from{
+    display: block;
+    margin-top: 3.3rem;
+    width: 100%;
+    height: 100%;
+}
+
+#login .login-text{
+    display: block;
+    margin: 10rem auto 0;
+    width: 90%;
+    height: 2.6rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+}
+
+#login .login-btn{
+    display: block;
+    margin: 2rem auto 0;
+    background: #65bbce;
+    color: #fff;
+    font-size: 1.2rem;
+    width: 5rem;
+    height: 2.6rem;
+    border-radius: .5rem;
+    border: none;
+}

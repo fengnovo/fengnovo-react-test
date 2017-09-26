@@ -1,0 +1,131 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+address, cite, dfn, em, var { font-style:normal; } 
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; } 
+small{ font-size:12px; } 
+ul, ol { list-style:none; } 
+a { text-decoration:none; } 
+// a:hover { text-decoration:underline; } 
+sup { vertical-align:text-top; } 
+sub{ vertical-align:text-bottom; } 
+legend { color:#000; } 
+fieldset, img { border:0; } 
+button, input, select, textarea { font-size:100%; } 
+table { border-collapse:collapse; border-spacing:0; }
+
+@mixin clearfix {
+    &:after {
+        clear: both;
+        content: '.';
+        display: block;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+    }
+    *height: 1%;
+}
+
+.boss-yzt {
+    .yzt-nav {
+        .grid-content {
+            min-height: 70px;
+        }
+        .bg-purple-dark {
+            background: #38373e;
+        }
+    }
+    .yzt-left {
+        border-top: 1px solid #000;
+        min-width: 200px;
+        // max-width: 250px;
+        min-height: 900px;
+        background-color: #38363e;
+        .el-menu-item, .el-submenu__title {
+            color: #fff !important;
+        }
+        .is-active {
+            background-color: #119dff !important;
+        }
+        .el-menu {
+            border-radius: 0;
+        }
+        .item-gb-black {
+            background: rgb(56,54,62);
+        }
+        .tac {
+            width: 200px;
+            min-height: 400px;
+        }
+    }
+    .yzt-right {
+        background-color: #f2f4f8;
+        padding: 20px;
+        // min-width: 800px;
+        min-height: 900px;
+        .yzt-container{
+            .content-nav-title {
+                color: #76838f !important;
+                font-size: 16px;
+                font-family:"Microsoft YaHei";
+                font-weight:bold;
+                margin-bottom: 10px;
+            }
+            .yzt-container-content {
+                background-color: #fff;
+                padding: 20px;
+                padding-bottom: 70px;
+                min-height: 700px;
+                .yzt-form-item .el-input__inner{
+                    border-left: none; 
+                    border-radius: 0;
+                }
+                .yzt-form-item{
+                    border-left: 1px solid #bfcbd9 !important;
+                }
+                .yzt-form-item-btn ,.yzt-form-item-btn-one, .yzt-form-item-input input, .el-input-group__prepend{
+                    border-radius: 0;
+                }
+
+                
+                .yzt-table{
+                    border: none;
+                    text-align: center;
+                    .el-table__footer-wrapper thead div, .el-table__header-wrapper thead div, .yzt-table-bg, .el-table__header thead th {
+                        background: #f4f7fa;
+                        text-align: center;
+                    }
+                    thead tr{
+                        height: 60px;
+                    }
+                    tbody tr{
+                        height: 80px;
+                    }
+                    tbody td{
+                        border-bottom: none;
+                    }
+                    
+                }
+
+                .el-table::after, .el-table::before {
+                    background: none;
+                }   
+                .yzt-page {
+                    float: right;
+                    margin-top: 20px;
+                    @include clearfix;
+                    li {
+                        height: 28px;
+                    }
+                    li.active {
+                        border-color: #f4f7fa;
+                        background-color: #f4f7fa;
+                        color: #5c5c5c;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+        
+    }
+}

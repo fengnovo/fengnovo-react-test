@@ -1,0 +1,45 @@
+.yzt-usermanager-rscontent {
+    .rscontent-title {
+        width: 100%;
+        height: 70px;
+        font-size: 20px;
+        line-height: 70px;
+        padding-left: 20px; 
+        background-color: #fff;
+    }
+
+    .rscontent-content {
+        width: 100%;
+        padding: 20px;
+        .rscontent-content-item {
+            background-color: #fff;
+            .rscontent-content-item-title {
+                width: 100%;
+                height: 70px;
+                font-size: 20px;
+                line-height: 70px;
+                padding-left: 20px;
+            }
+            .rscontent-content-item-title:after {  
+                content: '';  
+                display: block;  
+                width: 40px;  
+                margin-top: -5px;  
+                border-bottom: 2px solid #119dff;  
+            } 
+            table {
+                font-size: 14px;
+                tr{
+                    width: 100%;
+                    height: 100%;
+                } 
+                td:first-child {
+                    width: 30%;
+                }
+                td:last-child {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
